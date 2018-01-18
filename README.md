@@ -1,6 +1,12 @@
 # Night Owls Detector
 
-[TODO. There will be project description]
+The program check Devman database and returns usernames who commit after 12 am.
+
+# How to launch
+
+```
+python seek_dev_nighters.py
+```
 
 # Project Goals
 
