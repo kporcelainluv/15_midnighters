@@ -39,13 +39,15 @@ if __name__ == '__main__':
     while True:
         payload = {'page': page}
         data_attempt = fetch_data_from_url(payload)
-        if page < data_attempt["number_of_pages"]:
+        num_of_pages = data_attempt["number_of_pages"]
+
+        if page <= num_of_pages:
             active_devman_users = load_user_info(data_attempt)
             midnighters = get_midnighters(active_devman_users)
             for user in midnighters:
                 set_of_midnighters.add(user)
             page += 1
-        else:
+        if page > num_of_pages:
             break
 
     for user in set_of_midnighters:
