@@ -30,12 +30,9 @@ def get_midnighters(attempts):
     return midnighters
 
 
-if __name__ == '__main__':
-    url = "https://devman.org/api/challenges/solution_attempts/"
-    print("The midnighters are: ")
-    set_of_midnighters = set()
+def collect_midnighters_from_all_pages():
     page = 1
-
+    set_of_all_midnighters = set()
     while True:
         payload = {'page': page}
         data_attempt = fetch_data_from_url(payload)
@@ -45,10 +42,16 @@ if __name__ == '__main__':
             active_devman_users = load_user_info(data_attempt)
             midnighters = get_midnighters(active_devman_users)
             for user in midnighters:
-                set_of_midnighters.add(user)
+                set_of_all_midnighters.add(user)
             page += 1
         if page > num_of_pages:
             break
+    return set_of_all_midnighters
 
-    for user in set_of_midnighters:
+
+if __name__ == '__main__':
+    url = "https://devman.org/api/challenges/solution_attempts/"
+    print("The midnighters are: ")
+
+    for user in collect_midnighters_from_all_pages():
         print(user)
