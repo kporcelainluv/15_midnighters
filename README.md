@@ -1,6 +1,6 @@
 # Night Owls Detector
 
-The program checks Devman database from link (https://devman.org/api/challenges/solution_attempts/?page=2) and outputs usernames of those who commit after 12 am and before 5 am.
+The program checks all pages in Devman database from link (https://devman.org/api/challenges/solution_attempts/) and outputs usernames of those who commit after 12 am and before 5 am.
 
 # How to launch
 
